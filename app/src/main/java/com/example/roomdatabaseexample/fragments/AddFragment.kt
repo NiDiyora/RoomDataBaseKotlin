@@ -92,12 +92,14 @@ class AddFragment : Fragment() {
         age: Int,
         mobile: Boolean
     ): Boolean {
-        return !(TextUtils.isEmpty(firstname) && TextUtils.isEmpty(lastname) && TextUtils.isEmpty(age.toString()) && mobile == true)
+        return !(TextUtils.isEmpty(firstname) && TextUtils.isEmpty(lastname) && TextUtils.isEmpty(
+            age.toString()
+        ) && mobile == true)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PICK_IMAGE && resultCode == Activity.RESULT_OK && data != null) {
+        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null) {
             var uri = data.getData();
             val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver, uri)
             binding?.circleImageView?.setImageBitmap(bitmap)

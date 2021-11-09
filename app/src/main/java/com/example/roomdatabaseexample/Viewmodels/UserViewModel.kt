@@ -22,6 +22,7 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         readAlldata = repository.readAlldata
     }
 
+
     fun addUser(user: User) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.adduser(user)
